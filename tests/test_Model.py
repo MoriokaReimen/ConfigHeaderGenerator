@@ -1,5 +1,5 @@
 import pytest
-import app.JSONParser
+import Model.JSONParser
 
 def test_parseHeaderConfig():
     json_contents = """
@@ -9,7 +9,7 @@ def test_parseHeaderConfig():
         "footer":"footer"
     }
     """
-    header_config = app.JSONParser.parseHeaderConfig(json_contents)
+    header_config = Model.JSONParser.parseHeaderConfig(json_contents)
     assert header_config.path == "./hoge"
     assert header_config.header == "header"
     assert header_config.footer == "footer"
@@ -23,7 +23,7 @@ def test_parseConfigData():
         ]
     }
     """
-    configs = app.JSONParser.parseConfigData(json_contents)
+    configs = Model.JSONParser.parseConfigData(json_contents)
     assert configs[0].symbol == "DEBUG"
     assert configs[0].description == "My Config"
     assert configs[0].detail == "my first config"

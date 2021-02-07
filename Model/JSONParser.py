@@ -1,4 +1,4 @@
-import app.DataClass as DataClass
+import Model.DataClass as DataClass
 import json
 import os
 import typing
@@ -24,20 +24,3 @@ def parseConfigData(json_contents : str) -> typing.List[DataClass.ConfigData]:
         parsed_config : DataClass.ConfigData = DataClass.ConfigData(config["symbol"], config["description"], config["detail"], config["enable"])
         config_data.append(parsed_config)
     return config_data
-
-if __name__ == '__main__':
-    json_contents = """
-    {
-        "path" : "./hoge.json",
-        "header" : "hogehogheo",
-        "footer" : "fugafuga",
-        "configs" : [
-            {"symbol":"DEBUG", "description":"My Config", "detail":"my first config", "enable":true},
-            {"symbol":"DEBUG2", "description":"My Config2", "detail":"my first config2", "enable":false}
-        ]
-    }
-    """
-    header_config = parseHeaderConfig(json_contents)
-    print(header_config)
-    configs = parseConfigData(json_contents)
-    print(configs)
