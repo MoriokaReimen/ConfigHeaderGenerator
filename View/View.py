@@ -18,7 +18,7 @@ class View:
         lb_symbol.grid(row = 0, column = 0)
 
         lb_description = tk.Label(self.table_frame, width = 40)
-        lb_description["text"] = "Description"
+        lb_description["text"] = "Detail"
         lb_description.grid(row = 0, column = 1)
 
         lb_enable = tk.Label(self.table_frame, width = 10)
@@ -26,16 +26,22 @@ class View:
         lb_enable.grid(row = 0, column = 2)
 
         for i, config in enumerate(self.control.getConfigs()):
-            self.e = tk.Entry(self.table_frame, width=20)
-            self.e.insert(tk.END, config.symbol)
-            self.e.grid(row= i + 1, column = 0)
+            symbol_entry = tk.Entry(self.table_frame, width=20)
+            symbol_entry.insert(tk.END, config.symbol)
+            symbol_entry.config(state = tk.DISABLED)
+            symbol_entry.config(disabledforeground = "black", disabledbackground = "white")
+            symbol_entry.grid(row= i + 1, column = 0)
 
-            self.e = tk.Entry(self.table_frame, width=40)
-            self.e.insert(tk.END, config.description)
-            self.e.grid(row= i + 1, column = 1)
+            detail_entry = tk.Entry(self.table_frame, width=40)
+            detail_entry.insert(tk.END, config.detail)
+            detail_entry.config(state = tk.DISABLED)
+            detail_entry.config(disabledforeground = "black", disabledbackground = "white")
+            detail_entry.grid(row= i + 1, column = 1)
 
             bt_enable = tk.Button(self.table_frame, text="ON", width= 5)
             bt_enable["text"] = "ON" if config.enable else "OFF"
+            color = "green" if config.enable else "red"
+            bt_enable.config(bg=color, activebackground = color)
             bt_enable["command"] = lambda id = i, button = bt_enable : self.toggle_enable(id, button)
             bt_enable.grid(row = i + 1, column = 2)
         self.table_frame.pack()
@@ -60,3 +66,5 @@ class View:
         config = self.control.getConfigs()[id]
         config.enable = not config.enable
         button["text"] = "ON" if config.enable else "OFF"
+        color = "green" if config.enable else "red"
+        button.config(bg=color, activebackground = color)
