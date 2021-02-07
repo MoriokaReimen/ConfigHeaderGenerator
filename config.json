@@ -5,5 +5,9 @@
     "configs" : [
          {"symbol":"DEBUG", "description":"My Config", "detail":"my first config", "enable":true},
          {"symbol":"DEBUG2", "description":"My Config2", "detail":"my second config", "enable":false}
-     ]
+     ],
+     "val_configs" : [
+        {"symbol":"DEBUG", "description":"My Config", "detail":"my first config", "value":1.5, "enable":true},
+        {"symbol":"DEBUG2", "description":"My Config2", "detail":"my second config", "value":30, "enable":false}
+    ]
  }

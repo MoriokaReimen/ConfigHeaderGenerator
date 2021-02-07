@@ -8,6 +8,14 @@ class ConfigData:
         enable : bool
 
 @dataclass
+class ValConfigData:
+        symbol : str
+        description : str
+        detail : str
+        value : str
+        enable : bool
+
+@dataclass
 class HeaderConfig:
     path : str
     header : str
