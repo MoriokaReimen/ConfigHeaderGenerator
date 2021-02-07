@@ -1,7 +1,11 @@
 import tkinter as tk
+from Control import Control
 
 class View:
-    def __init__(self):
+    def __init__(self, control : Control.Control):
+        self.control = control
+
+        # Init Window
         self.root = tk.Tk()
         self.root.title(u"Header File Generator")
         self.root.geometry("600x800")
@@ -21,8 +25,3 @@ class View:
 
     def update(self):
         pass
-
-if __name__ == '__main__':
-    view = View()
-    view.start()
-
