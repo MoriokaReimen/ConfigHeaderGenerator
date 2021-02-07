@@ -3,7 +3,7 @@ header = """
 #ifndef HOGE_H
 #define HOGE_H
 /***************************************************************************
-    File Name:      hoge.h
+    File Name:      ${FILE_NAME}
     Author:         MoriokaReimen
     description:    Configuration for Super Cool Software
     Data:           ${DATE_TIME}
@@ -11,8 +11,8 @@ header = """
 """
 
 footer = """
-#endif /* HOGE_H */
-/* End of hoge.h */
+#endif
+/* End of ${FILE_NAME} */
 """
 
 [[configs]]
