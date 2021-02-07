@@ -1,4 +1,4 @@
-import DataClass
+import app.DataClass as DataClass
 import json
 import os
 import typing

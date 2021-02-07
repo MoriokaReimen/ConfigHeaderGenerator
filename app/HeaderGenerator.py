@@ -1,4 +1,4 @@
-import DataClass
+import app.DataClass
 from typing import List
 
 def generateHeader(header_config : DataClass.HeaderConfig, configs : List[DataClass.ConfigData]) -> str:
