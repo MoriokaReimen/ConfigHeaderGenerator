@@ -1,4 +1,5 @@
 import tkinter as tk
+import tkinter.messagebox
 from Control import Control
 
 class View:
@@ -18,10 +19,15 @@ class View:
         # Generator Button
         self.bt_generate = tk.Button(self.root)
         self.bt_generate["text"] = "Generate Header"
+        self.bt_generate["command"] = self.generateHeader
         self.bt_generate.pack(side=tk.BOTTOM, anchor=tk.SE)
 
     def start(self):
         self.root.mainloop()
+
+    def generateHeader(self):
+        self.control.generateHeader()
+        tk.messagebox.showinfo("Header Generator Info", "Generated:{0}".format(self.control.header_config.path))
 
     def update(self):
         pass

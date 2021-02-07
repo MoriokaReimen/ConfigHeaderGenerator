@@ -1,10 +1,11 @@
 import Model.Utility
 import Model.DataClass
 import Model.JSONParser
+import Model.HeaderGenerator
 
 class Control:
     def __init__(self):
-        pass
+        self.loadFile()
 
     def loadFile(self):
         contents = Model.Utility.openFile("config.json")
@@ -17,3 +18,6 @@ class Control:
     
     def getConfigs(self):
         return self.configs
+    
+    def getHeaderConfig(self):
+        return self.header_config

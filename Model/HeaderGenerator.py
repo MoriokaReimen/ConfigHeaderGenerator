@@ -1,7 +1,7 @@
 import Model.DataClass
 from typing import List
 
-def generateHeader(header_config : DataClass.HeaderConfig, configs : List[DataClass.ConfigData]) -> str:
+def generateHeader(header_config : Model.DataClass.HeaderConfig, configs : List[Model.DataClass.ConfigData]) -> str:
     contents : str = str()
     contents += header_config.header
     contents += "\r\n"
@@ -11,4 +11,5 @@ def generateHeader(header_config : DataClass.HeaderConfig, configs : List[DataCl
         contents += "\t/* "
         contents += config.description
         contents += "*/\r\n"
+    contents += header_config.footer
     return contents
