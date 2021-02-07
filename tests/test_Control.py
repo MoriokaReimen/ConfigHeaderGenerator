@@ -1,7 +1,7 @@
 import pytest
 from Control import Control
 
-def test_json_loading():
+def test_toml_loading():
     control = Control.Control()
     control.loadFile()
     configs = control.getConfigs()

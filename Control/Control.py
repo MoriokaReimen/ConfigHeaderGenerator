@@ -1,6 +1,6 @@
 import Model.Utility
 import Model.DataClass
-import Model.JSONParser
+import Model.TOMLParser
 import Model.HeaderGenerator
 
 class Control:
@@ -8,10 +8,10 @@ class Control:
         self.loadFile()
 
     def loadFile(self):
-        contents = Model.Utility.openFile("config.json")
-        self.header_config = Model.JSONParser.parseHeaderConfig(contents)
-        self.configs = Model.JSONParser.parseConfigData(contents)
-        self.val_configs = Model.JSONParser.parseValConfigData(contents)
+        contents = Model.Utility.openFile("config.toml")
+        self.header_config = Model.TOMLParser.parseHeaderConfig(contents)
+        self.configs = Model.TOMLParser.parseConfigData(contents)
+        self.val_configs = Model.TOMLParser.parseValConfigData(contents)
     
     def generateHeader(self):
         contents = Model.HeaderGenerator.generateHeader(self.header_config, self.configs, self.val_configs)
