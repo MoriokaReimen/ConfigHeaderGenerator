@@ -6,6 +6,7 @@ def generateHeader(header_config : Model.DataClass.HeaderConfig, configs : List[
     contents += header_config.header
     contents += "\r\n"
     for config in configs:
+        if not config.enable : continue
         contents += "#define\t"
         contents += config.symbol
         contents += "\t/* "
