@@ -9,7 +9,7 @@ class View:
         # Init Window
         self.root = tk.Tk()
         self.root.title(u"Header File Generator")
-        self.root.geometry("600x800")
+        self.root.geometry("700x800")
 
         self.config_frame = tk.Frame(self.root)
 
@@ -45,7 +45,7 @@ class View:
             bt_enable.config(bg=color, activebackground = color)
             bt_enable["command"] = lambda id = i, button = bt_enable : self.toggle_config_enable(id, button)
             bt_enable.grid(row = i + 1, column = 2)
-        self.config_frame.pack()
+        self.config_frame.pack(side=tk.TOP, anchor=tk.NW)
 
 
         self.value_config_frame = tk.Frame(self.root)
@@ -59,9 +59,13 @@ class View:
         lb_description["text"] = "Detail"
         lb_description.grid(row = 0, column = 1)
 
+        lb_value = tk.Label(self.value_config_frame, width = 10)
+        lb_value["text"] = "Value"
+        lb_value.grid(row = 0, column = 2)
+
         lb_enable = tk.Label(self.value_config_frame, width = 10)
         lb_enable["text"] = "Enable"
-        lb_enable.grid(row = 0, column = 2)
+        lb_enable.grid(row = 0, column = 3)
 
         for i, val_config in enumerate(self.control.getValConfigs()):
             symbol_entry = tk.Entry(self.value_config_frame, width=20)
@@ -86,9 +90,9 @@ class View:
             bt_enable["text"] = "ON" if val_config.enable else "OFF"
             color = "green" if val_config.enable else "red"
             bt_enable.config(bg=color, activebackground = color)
-            bt_enable["command"] = lambda id = i, button = bt_enable : self.toggle_config_enable(id, button)
+            bt_enable["command"] = lambda id = i, button = bt_enable : self.toggle_val_config_enable(id, button)
             bt_enable.grid(row = i + 1, column = 3)
-        self.value_config_frame.pack()
+        self.value_config_frame.pack(side=tk.TOP, anchor=tk.W)
 
         # Generator Button
         self.bt_generate = tk.Button(self.root)
